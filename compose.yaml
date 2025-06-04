@@ -1,0 +1,25 @@
+﻿services:
+  comet_handler:
+    image: comet_handler
+    build:
+      context: .
+      dockerfile: Comet.Handler/Dockerfile
+    ports:
+      - "8080:8080"
+  comet_api:
+    image: comet_api
+    build:
+      context: .
+      dockerfile: Comet.API/Dockerfile
+    ports:
+      - "8081:8080"
+  postgres:
+    image: postgres:17-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=testtest
+      - POSTGRES_USER=test
+      - POSTGRES_DB=comet_db
