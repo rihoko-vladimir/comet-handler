@@ -1,6 +1,6 @@
-namespace CometHandler.Models;
+namespace Comet.API.Models;
 
-internal sealed record Comet
+public sealed record Comet
 {
     public string Name { get; init; }
 
@@ -10,7 +10,7 @@ internal sealed record Comet
 
     public string RecordedClassification { get; init; }
 
-    public string? Mass { get; init; }
+    public int? Mass { get; init; }
 
     public string Fall { get; init; }
 

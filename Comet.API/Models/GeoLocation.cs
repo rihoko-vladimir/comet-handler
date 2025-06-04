@@ -1,6 +1,6 @@
-namespace CometHandler.Models;
+namespace Comet.API.Models;
 
-internal sealed record GeoLocation
+public sealed record GeoLocation
 {
     public string Type { get; init; }
 
