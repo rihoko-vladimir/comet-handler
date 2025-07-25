@@ -34,3 +34,5 @@ internal sealed record CometDto
     [JsonPropertyName(":@computed_region_nnqa_25f4")]
     public string? ComputedRegionNnqa25f4 { get; init; }
 }
+
+// This is a comment
