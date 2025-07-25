@@ -23,6 +23,16 @@ builder.Services.AddScoped<ICometRepository, CometRepository>();
 builder.Services.AddScoped<ICometService, CometService>();
 builder.Services.AddMemoryCache();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200") 
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddSerilog();
 
 builder.Services.AddDbContext<ApplicationContext>(options =>
@@ -37,6 +47,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowFrontend");
 
 app.UseHttpsRedirection();
 
